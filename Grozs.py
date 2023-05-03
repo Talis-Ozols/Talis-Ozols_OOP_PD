@@ -1,4 +1,3 @@
-import globalVars
 import valutuRiki
 
 class GrozaSaturs():
@@ -49,6 +48,14 @@ class Grozs():
             if item.get_produkts() == produkts:
                 return item, id
         return None, None
+    def parbaudit_izdzestus_produktus(self):
+        index = 0
+        while index < len(self.saraksts):
+            item = self.saraksts[index]
+            if item.get_produkts() == None or item.get_produkts().get_izdzests() == True:
+                self.nonemt_indeksu(index)
+            else:
+                index += 1
 
     
     def pievienot_produktu(self, produkts, skaits):
@@ -88,6 +95,7 @@ class Grozs():
         self.saraksts.pop(indekss)
     
     def __str__(self):
+        self.parbaudit_izdzestus_produktus()
         res = "# Iepirkumu grozs:\n"
         for item in self.saraksts:
             res += str(item) + ",\n"

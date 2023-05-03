@@ -63,7 +63,12 @@ def __main__():
             for i in range(len(produkti)):
                 print(i, produkti[i].get_nosaukums())
             i = ievadesRiki.pieprasit_naturalu_robezas("Ievadiet dzēšamā produkta indeksu: ", 0, len(produkti))
+            # print(produkti[i])
+            # del produkti[i]
+            # print(produkti[i])
+            produkti[i].izdzests = True
             produkti.pop(i)
+            mans_grozs.parbaudit_izdzestus_produktus()
         elif ievade_darbiba == "sg":
             print(mans_grozs)
         elif ievade_darbiba == "ag":

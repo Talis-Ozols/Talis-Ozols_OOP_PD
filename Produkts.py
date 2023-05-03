@@ -9,6 +9,7 @@ class Produkts():
         self.nosaukums = nosaukums
         self.cena = cena
         self.apraksts = apraksts
+        self.izdzests = False
     
     def get_nosaukums(self):
         return self.nosaukums
@@ -57,6 +58,11 @@ class Produkts():
         return ievadesRiki.pieprasit_un_apstradat_vertibu("Apraksts: ", self.parse_apraksts)
     def pieprasit_un_mainit_apraksts(self):
         self.set_apraksts(self.pieprasit_apraksts())
+    
+    def get_izdzests(self):
+        return self.izdzests
+    def set_izdzests(self, b):
+        self.izdzests = b
 
     def __str__(self):
         return f"# Produkts:\nnosaukums: {self.get_nosaukums()},\ncena: {self.printejama_cena()},\napraksts: {self.get_apraksts()}"
